@@ -15,7 +15,8 @@ html {
 }
 
 body {
-  background-color: #2d3236;
+  background: url("../assets/6.png") fixed no-repeat;
+  /*background-color: #2d3236;*/
   color: #fff;
   font-size: 15px;
   padding: 20px;
