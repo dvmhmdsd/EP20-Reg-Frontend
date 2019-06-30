@@ -3,15 +3,26 @@
 /* styling the header */
 header#main-header {
   height: 100vh;
+  text-align: center;
 }
 
 header .btn-header {
-  font-size: 3vw
+  font-size: 3vw;
 }
 
 /* style the header */
 .header-caption {
   margin-bottom: 40px;
+}
+
+header .lang-link {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px;
+  background: #ffff;
+  width: 20%;
+  border-radius: 10px;
+  font-size: 18px;
 }
 
 /* style the form card */
@@ -34,7 +45,7 @@ header .btn-header {
     border-radius: 10px;
     margin-bottom: 30px;
     width: 100%;
-  } 
+  }
 }
 
 /* style the form */
@@ -100,10 +111,10 @@ textarea.invalid {
 
 /* style the validation message */
 .validate-message {
- color: #bd2424;
- font-size: 1rem;
- margin-top: 6px;
- margin-left: 14px;
+  color: #bd2424;
+  font-size: 1rem;
+  margin-top: 6px;
+  margin-left: 14px;
 }
 
 .form-card input:focus,
@@ -206,7 +217,6 @@ textarea.invalid {
   }
 }
 
-
 /* hide the question and show it on select */
 .question,
 .other,
@@ -220,4 +230,4 @@ textarea.invalid {
   color: #cccccc;
   color: #aaaaaa;
   font-family: monospace;
-} 
+}

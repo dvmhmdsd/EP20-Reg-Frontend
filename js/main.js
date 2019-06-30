@@ -373,6 +373,6 @@ btnHeader.addEventListener("click", function() {
   // scroll to form
   window.scrollTo(
     0,
-    document.querySelector("main .reg-header .header-caption ").offsetTop - 20
+    document.querySelector("main .reg-header .header-caption").offsetTop - 20
   );
 });
