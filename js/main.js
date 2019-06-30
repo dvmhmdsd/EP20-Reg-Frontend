@@ -102,8 +102,8 @@ regForm.addEventListener("submit", function(e) {
     })
 
     // send data to the api
-    fetch("https://stark-temple-62549.herokuapp.com/register", {
-      method: "POST",
+    fetch("https://stark-template-62549.herokuapp.com/register", {
+      method: "post",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json"

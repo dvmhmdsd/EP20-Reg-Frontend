@@ -279,3 +279,45 @@ textarea.invalid {
   color: #fff;
   border-bottom: 1px dotted;
 }
+
+div.container.loc {
+  display: block;
+  margin: 30px auto;
+  background: #f3f3f3;
+  color: #333333;
+  border-radius: 10%;
+  padding: 20px;
+  box-shadow: 1px 1px 13px 9px #131313;
+}
+
+div.container.loc * {
+  display: block;
+  justify-content: center;
+}
+
+div.container.loc a {
+  display: inline;
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+  border-bottom: 1px dotted #000;
+}
+
+#locimg,
+div.container.loc p
+{
+  margin-top: 20px;
+}
+
+#locimg img {
+  border-radius: 10%;
+  box-shadow: 1px 1px 5px 5px #d3d3d3;
+  max-width: 80%;
+  margin: auto;
+}
+
+@media only screen and (max-width: 768px) {
+  #locimg img {
+    max-width: 100%;
+  }
+}
