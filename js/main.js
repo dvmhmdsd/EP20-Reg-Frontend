@@ -101,7 +101,7 @@ regForm.addEventListener("submit", function(e) {
       question.style.display = 'none';
     })
 
-    // send data
+    // send data to the api
     fetch("https://stark-template-62549.herokuapp.com/register", {
       method: "post",
       headers: {
