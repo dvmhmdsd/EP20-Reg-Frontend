@@ -3,7 +3,7 @@
 // validateEmpty the form
 // get the form inputs
 let formFields = document.querySelectorAll(
-  ".form-card input, .form-card select, .form-card textarea"
+  ".card input, .card select, .card textarea"
 );
 
 // validation
@@ -102,8 +102,8 @@ regForm.addEventListener("submit", function(e) {
     })
 
     // send data to the api
-    fetch("https://stark-template-62549.herokuapp.com/register", {
-      method: "post",
+    fetch("https://stark-temple-62549.herokuapp.com/register", {
+      method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json"
@@ -114,6 +114,10 @@ regForm.addEventListener("submit", function(e) {
         // show success message
         modalContent.innerHTML =
           "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>";
+
+        setTimeout(() => {
+          location.replace('/location.html')
+        }, 2500)
       })
       .catch(err => {
         modalContent.innerHTML = "<p>An error occured, please try again.</p>";
@@ -281,6 +285,8 @@ facultySelect.addEventListener("change", function() {
   document.querySelector(".year").style.display = "block";
   if (this.value == "Engineering") {
     document.querySelector(".eng-dept").style.display = "block";
+  } else {
+    document.querySelector(".eng-dept").style.display = "none";
   }
 
   if (this.value == "Engineering" || this.value == "applied arts" || this.value == "pharmacyeuticals") {
@@ -370,9 +376,15 @@ let btnHeader = document.querySelector(".btn-header");
 btnHeader.addEventListener("click", function() {
   // make the body scrollable back
   document.body.style.overflow = "auto";
+  document.body.style.height = 2100 + "px";
   // scroll to form
   window.scrollTo(
     0,
-    document.querySelector("main .reg-header .header-caption").offsetTop - 20
+    650
   );
+
+  // animate the form
+  document.querySelector('.card').classList.add('anime-form');
+  document.querySelector('main .container').classList.remove('contain')
 });
+

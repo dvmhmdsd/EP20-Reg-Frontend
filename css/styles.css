@@ -26,25 +26,36 @@ header .lang-link {
 }
 
 /* style the form card */
-.form-card {
+.card {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 1px 1px 13px 9px #131313;
+  box-shadow: 1px 1px 14px 2px #060611;
   border-radius: 10px;
   margin-bottom: 30px;
-  width: 90%;
+  width: 30px;
+  height: 30px;
+  overflow: hidden;
 }
 
-@media (max-width: 670px) {
-  .form-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 1px 1px 13px 9px #131313;
-    border-radius: 10px;
-    margin-bottom: 30px;
+.anime-form {
+  animation: layout 1s ease-in-out 0.5s forwards;
+}
+
+@keyframes layout {
+  0% {
+    width: 30px;
+    height: 30px;
+  }
+
+  50% {
+    width: 30px;
+    height: 700px;
+  }
+
+  100% {
     width: 100%;
+    height: auto;
   }
 }
 
@@ -53,15 +64,17 @@ header .lang-link {
   width: 100%;
 }
 
-.form-card .form-fields {
+.card .form-fields {
   background-color: #1f2428;
   padding: 30px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+  opacity: 0;
+  animation: opacity 1s ease-in 2.5s forwards;
 }
 
 /* style the heading of the form */
-.form-card .h1 {
+.card .h1 {
   background-color: #454c5e;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -69,27 +82,37 @@ header .lang-link {
 }
 
 /* style the labels */
-.form-card .field {
+.card .field {
   margin-bottom: 20px;
 }
 
-.form-card .field .radio-block {
+@keyframes opacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.card .field .radio-block {
   display: flex;
 }
 
-.form-card .field .radio-block input {
+.card .field .radio-block input {
   width: 10%;
   margin-bottom: 10px;
 }
 
-.form-card label {
+.card label {
   margin-bottom: 10px;
 }
 
 /* style the inputs */
-.form-card input,
-.form-card select,
-.form-card textarea {
+.card input,
+.card select,
+.card textarea {
   padding: 10px;
   border-radius: 7px;
   border: 1px solid #454c5e;
@@ -117,14 +140,14 @@ textarea.invalid {
   margin-left: 14px;
 }
 
-.form-card input:focus,
-.form-card select:focus,
-.form-card textarea:focus {
+.card input:focus,
+.card select:focus,
+.card textarea:focus {
   border: 3px solid #0c68ab;
 }
 
 /* style the submit button */
-.form-card input[type="submit"]:disabled {
+.card input[type="submit"]:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
@@ -146,6 +169,7 @@ textarea.invalid {
   -webkit-animation-duration: 0.4s;
   animation-name: fadeIn;
   animation-duration: 0.4s;
+  text-align: center;
 }
 
 /* Modal Content */
@@ -162,10 +186,10 @@ textarea.invalid {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 60px;
 }
 
 .modal-body {
-  padding: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -225,9 +249,33 @@ textarea.invalid {
   display: none;
 }
 
-/* change the color of the placeholder */
-*::placeholder {
-  color: #cccccc;
-  color: #aaaaaa;
-  font-family: monospace;
+/* style the location page */
+
+#main-header.loc-header {
+  height: auto;
+}
+
+.location-card {
+  text-align: center;
+  box-shadow: 1px 1px 14px 2px #060611;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: rgba(18, 18, 88, 0.7);
+}
+
+.location-card .location-desc {
+  flex-basis: 100%;
+  margin-bottom: 20px;
+  line-height: 2
+}
+
+.location-card img {
+  max-width: 80%;
+  height: auto;
+}
+
+.location-card .location-desc a {
+  color: #fff;
+  border-bottom: 1px dotted;
 }
