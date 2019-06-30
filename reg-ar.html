@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>استمارة تسجيل</title>
+    <link rel="stylesheet" href="/assets/all.min.css" />
+    <link rel="stylesheet" href="/css/styles.css" />
+  </head>
+
+  <body>
+    <!-- the header of the app -->
+    <header id="main-header" class="reg-header text-center">
+      <!-- the logo -->
+      <a href="/"><img src="assets/logo.png" alt="energia logo"/></a>
+
+      <!-- simple note -->
+      <p class="header-caption">
+        هذه الأسئلة لا تحدد قبولك، لذا إن أحببت أن تحلها، تفضل بكل صراحة
+      </p>
+
+      <!-- button to scroll down to the form -->
+      <button class="btn btn-header" disabled>
+        <img src="assets/loader.gif" alt="loading ..." />
+      </button>
+    </header>
+
+    <!-- main content -->
+    <main>
+      <!-- the header of the main content -->
+      <header class="reg-header text-center">
+        <!-- the instructions -->
+        <p class="header-caption">
+          من فضلك املأ كل الفراغات المححدة بعلامة
+          <span class="red">* </span>
+        </p>
+      </header>
+      <!-- the form section -->
+      <div class="container">
+        <section class="form-card">
+          <form id="regForm" novalidate>
+            <legend class="h1 text-center card-head">استمارة تسجيل</legend>
+
+            <section class="form-fields">
+              <!-- TODO: add the haif class if the form become long -->
+              <div class="field half">
+                <label for="name">الاسم بالكامل <span class="red">* </span></label
+                ><input
+                  id="name"
+                  type="text"
+                  name="name"
+                  placeholder="مثال: محمد سعد حسن"
+                  required
+                />
+              </div>
+
+              
+              <div class="field half">
+                <label for="email"
+                >البريد الالكتروني<span class="red">* </span></label
+                >
+                <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="e.g.: example@example.com"
+                required
+                />
+              </div>
+
+              <!-- fix the float problem -->
+              <div class="clearfix"></div>
+
+              <div class="field half">
+                <label for="phone"
+                  >رقم الموبايل<span class="red">* </span></label
+                >
+                <input
+                  id="phone"
+                  type="tel"
+                  name="phone"
+                  placeholder="e.g: 01003400000"
+                  required
+                  />
+                </div>
+
+                <!-- address -->
+                <div class="field half">
+                  <label for="address"
+                    >العنوان<span class="red">* </span></label
+                  >
+                  <input
+                    id="address"
+                    type="text"
+                    name="address"
+                    placeholder="مثل : شارع هارون - الدقي"
+                    required
+                  />
+                </div>
+                <div class="clearfix"></div>
+
+              <!-- facebook link -->
+              <div class="field">
+                <label for="facebook"
+                  >رابط حساب الفيسبوك<span class="red">* </span></label
+                >
+                <input
+                  id="facebook"
+                  type="url"
+                  name="facebook"
+                  placeholder="e.g: https://m.facebook.com/it.member4"
+                  required
+                />
+              </div>
+
+
+              <!-- hobbies -->
+              <div class="field">
+                  <label for="hobbies">الهوايات</label>
+                  <input
+                    id="hobbies"
+                    type="text"
+                    name="hobbies"
+                    placeholder="مثل :القراءة، الرياضة"
+                  />
+                </div>
+
+                <!-- university -->
+              <div class="field">
+                <label for="university">الجامعة<span class="red">* </span> </label>
+                <select name="university" id="university" required>
+                    <option value="" disabled selected>اختر جامعتك</option>
+                    <option value="cairo">جامعة القاهرة</option>
+                    <option value="Ain shams">جامعة عين شمس</option>
+                    <option value="Azhar">جامعة الأزهر</option>
+                    <option value="Helwan">جامعة حلوان</option>
+                    <option value="Helwan-Matarya">جامعة حلوان - فرع المطرية</option>
+                    <option value="Shoubra">جامعة بنها - فرع شبرا</option>
+                    <option value="ECU">الجامعة المصرية الكندية ECU</option>
+                    <option value="October"> جامعة اكتوبر</option>
+                    <option value="GUC">الجامعة الألمانية بالقاهرة GUC</option>
+                    <option value="AUC">الجامعة الأمريكية بالقاهرة AUC</option>
+                    <option value="MSA">جامعة العلوم الحديثة والفنون MSA</option>
+                    <option value="Future">جامعة المستقبل</option>
+                    <option value="BUE">الجامعةالمصرية البريطانية BUE</option>
+                    <option value="Badr">جامعة بدر</option>
+                    <option value="AAST">الأكاديمية العربية للعلوم والتكنولوجيا والنقل البحري AAST</option>
+                    <option value="MUST">جامعة مصر للعلوم والتكنولوجيا MUST</option>
+                    <option value="Nile">جامعة النيل</option>
+                    <option value="CIC">الجامعة الدولية الكندية CIC</option>
+                    <option value="High institute of technology">المعهد العالي للتكنولوجيا</option>
+                    <option value="other">أخرى</option>
+                </select>
+                
+              </div>
+ 
+              <div class="field other">
+                <label>فضلا اكتب اسم الجامعة</label>
+                <input type="text" placeholder="ادخل الاسم" required>
+              </div>
+
+              <div class="field">
+                <label for="faculty">الكلية<span class="red">* </span></label>
+                <select name="faculty" id="faculty" required>
+                    <option value="" disabled selected>اختر كليتك</option>
+                    <option value="Engineering">الهندسة</option>
+                    <option value="law">الحقوق</option>
+                    <option value="medicine">الطب</option>
+                    <option value="Economics and political science">الاقتصاد والعلوم السياسية</option>
+                    <option value="applied arts">الفنون التطبيقية</option>
+                    <option value="pharmacyeuticals">الصيدلة</option>
+                    <option value="Linguistics">الألسن</option>
+                    <option value="Commerce">التجارة</option>
+                    <option value="Education">التربية</option>
+                    <option value="Computer sciences">حاسبات ومعلومات</option>
+                    <option value="science">علوم</option>
+                    <option value="Fine arts">فنون جميلة</option>
+                    <option value="Mass communication">إعلام</option>
+                    <option value="Arts">آداب</option>
+                    <option value="other">اخرى</option>
+                </select>
+              </div>
+
+              <div class="field other">
+                <label>فضلا أدخل اسم الكلية</label>
+                <input type="text" placeholder="ادخل الاسم" required>
+              </div>
+
+              <div class="field eng-dept">
+                  <label for="department">القسم<span class="red">* </span></label>
+                  <select name="department" id="department" required>
+                      <option value="" disabled selected>اختر قسمك</option>
+                      <option value="Not yet">ليس بعد</option>
+                      <option value="Architectural">عمارة</option>
+                      <option value="Chemical">كيمياء</option>
+                      <option value="Civil">مدني</option>
+                      <option value="Communication">اتصالات</option>
+                      <option value="Electrical Power">كهرباء قوى</option>
+                      <option value="Electrical (general)">كهرباء</option>
+                      <option value="Mechanical (general)">ميكانيكا</option>
+                      <option value="Mechanical Power">ميكانيكا قوى</option>
+                      <option value="Petroleum">بترول</option>
+                      <option value="Computer">حاسبات</option>
+                      <option value="Mechatronics">ميكاترونكس</option>
+                      <option value="Production">انتاج</option>
+                      <option value="Aerospace">طيران</option>
+                      <option value="industrial">صناعية</option>
+                  </select>
+
+                  
+              </div>
+
+              <div class="field year">
+                <label for="year">السنة الجامعية<span class="red">* </span></label>
+                <select name="year" id="year" required>
+                    <option value="" disabled selected>اختر سنة</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="attend"
+                  >هل حضرت أي من احداث 
+                  Energia Powered
+                  من قبل ؟ ان كانت الاجابة نعم، فضلا اذكرها 
+                  <span class="red">*</span> </label
+                >
+                <input
+                  id="attend"
+                  type="text"
+                  name="events"
+                  placeholder="e.g: field trip, zayed, ..."
+                  required
+                />
+              </div>
+
+              <div class="field">
+                <label for="committee"
+                >اختر الفريق الذي تود الانضمام اليه - سيكون تفضيلك الأول<span class="red"
+                    >*
+                  </span></label
+                >
+                <select id="committee" name="committee" required>
+                  <option value="" disabled selected>اختر فريقًا</option>
+                  <option value="IT">IT</option>
+                  <option value="HR">HR</option>
+                  <option value="DCR">Logistics & DCR</option>
+                  <option value="FR">FR</option>
+                  <option value="PR">PR</option>
+                  <option value="Media">Media</option>
+                  <option value="Design">Design</option>
+                  <option value="Marketing">Marketing</option>
+                  <option value="hybrid-cars-workshop">Hybrid Cars workshop (Participant)</option>
+                  <option value="Robotics-workshop">Robotics workshop (Participant)</option>
+                </select>
+              </div>
+
+              <!-- questions fields -->
+              <div class="field question" id="IT">
+                <label for="question">اذكر بعض تكنولوجيا و أدوات الويب التي تعرفها<span class="red">* </span></label>
+                <textarea
+                  id="question"
+                  name="question 1"
+                  cols="30"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="field question" id="DCR">
+                <label for="question">هل قمت بأي عملبات تزيين وديكور أو أعمال يدوية <span class="red">* </span></label>
+
+                <div class="radio-block">
+                  <input type="radio" name="question 1" value="no" id="dc" required>
+                  <label for="dc">نعم</label>
+                </div>
+
+                <div class="radio-block">
+                  <input type="radio" name="question 1" id="dc1" value="yes">
+                  <label for="dc1">لا</label>
+                </div>
+              </div>
+
+              <div class="field question" id="PR">
+                <label for="question">هل تستطيع استخدام Microsoft Word<span class="red">* </span></label>
+                <div class="radio-block">
+                  <input type="radio" name="question 1" id="pr" value="no" required>
+                  <label for="pr">نعم</label>
+                </div>
+                <div class="radio-block">
+                  <input type="radio" id="pr1" name="question 1" value="yes">
+                  <label for="pr1">لا</label>
+                </div>
+
+                <label for="question">هل سبق أن أرسلت بريدا الكترونيا لأحدهم ؟<span class="red">* </span></label>
+                <div class="radio-block">
+                  <input type="radio" name="question 2" id="mail" value="no" required>
+                  <label for="mail">نعم</label>
+                </div>
+                <div class="radio-block">
+                  <input type="radio" id="mail1" name="question 2" value="yes">
+                  <label for="mail1">لا</label>
+                </div>
+              </div>
+
+              <div class="field question" id="hybrid-cars-workshop">
+                <p>فضلا قبل حضور المقابلة، استعد للتقديم لمدة 10 دقائق عن الموضوع التالي
+                    the four strokes of the gasoline car engine 
+                </p>
+              </div>
+
+              <div class="field question" id="Robotics-workshop">
+                <label for="exp">هل لديك أي خبرة سابقة في مجال الروبوتكس؟ ان كانت الاجابة نعم، فضلا اذكرها<span class="red">*</span> </label>
+                <input
+                  id="exp"
+                  type="text"
+                  name="question 1"
+                  placeholder="e.g. Robotic Arm - درستها في الكلية"
+                />  
+
+                <label for="robotics">هل تعرف أي من لغات البرمجة ؟ ان كانت الاجابة نعم، فضلا اذكرها<span class="red">*</span> </label>
+                <input
+                  id="robotics"
+                  type="text"
+                  name="question 2"
+                  placeholder="e.g: python, ..."
+                />
+
+                <p>فضلا قبل حضور المقابلة، استعد للتقديم لمدة 10 دقائق عن الموضوع الذي تحبه
+                    </p>
+              </div>
+
+              <div class="field question" id="Design">
+                <label for="question">هل لديك أي خبرة سابقة مع برامج التعديل والمونتاج مثل فوتوشوب ؟ ان كانت الاجابة نعم، فضلا اذكرها<span class="red">* </span></label>
+                <textarea
+                id="question"
+                name="question 1"
+                cols="30"
+                rows="5"
+                placeholder="e.g: photoshop, ..."
+                required
+                ></textarea>
+              </div>
+
+              <div class="field question" id="Media">
+                <label>ألديك كاميرا ؟<span class="red">* </span></label>
+                <div class="radio-block">
+                  <input type="radio" name="question 1" id="camera" value="no" required>
+                  <label for="camera">نعم</label>
+                </div>
+                <div class="radio-block">
+                  <input type="radio" name="question 1" id="camera1" value="yes">
+                  <label for="camera1">لا</label>
+                </div>
+
+                <label> هل لديك أي خبرة سابقة في مجال التصوير الفوتوغرافي والمونتاج؟  ان كانت الاجابة نعم، فضلا اذكرها <span class="red">* </span></label>
+                <textarea
+                  id="question"
+                  name="question 2"
+                  cols="30"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="field question" id="Marketing">
+                <label for="question">هل لديك أي خبرة سابقة في مجال التسويق؟  ان كانت الاجابة نعم، فضلا اذكرها <span class="red">* </span></label>
+                <textarea
+                  id="question"
+                  name="question 1"
+                  cols="30"
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="field">
+                <label for="join-reason"
+                  >لماذا اخترت هذا الفريق تحديدا ؟<span class="red"
+                    >*
+                  </span></label
+                >
+                <textarea
+                  id="join-reason"
+                  name="reason"
+                  cols="30"
+                  rows="10"
+                  placeholder="مثلا: لأتعلم"
+                  required
+                ></textarea>
+              </div>
+
+              <div class="field">
+                <label for="how">كيف تعرفت علينا ؟ <span class="red">*</span></label>
+
+                <select name="How Know" id="how" required>
+                  <option value="">اختر ...</option>
+                  <option value="Social media">Social media</option>
+                  <option value="our booth">our booth</option>
+                  <option value="friend">friend</option>
+                  <option value="university">university</option>
+                  <option value="website">website</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="comments">اترك تعليقا ^^<span class="red">*</span></label>
+                <textarea name="comments" id="comments" cols="30" rows="10" placeholder="يهمنا رأيك" required></textarea>
+              </div>
+
+              <input type="submit" class="btn" value="تسجيـــــــل" />
+            </section>
+          </form>
+        </section>
+      </div>
+      <!-- The Modal-->
+      <div class="modal" id="val-modal">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-body">
+            <img src="/assets/loader.gif" alt="loading ..." />
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- the footer of the app -->
+    <footer class="text-center">
+      <p>
+        بواسطة
+        <a
+          href="https://www.linkedin.com/in/mohamed-saad-23424714b"
+          target="_blank"
+        >
+          فريق IT</a
+        >
+      </p>
+    </footer>
+
+    <script src="/js/main.js" defer="defer"></script>
+  </body>
+</html>

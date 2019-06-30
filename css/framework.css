@@ -1,0 +1,93 @@
+
+/* remove the default style of the layout of elements */
+html {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: monospace;
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #2d3236;
+  color: #fff;
+  font-size: 15px;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+/* centering the content */
+.container {
+  width: 86%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* center the text and children of parent */
+.text-center {
+  text-align: center;
+}
+
+/* clear the float */
+.clearfix {
+  clear: both;
+}
+
+/* remove the default style of a */
+a {
+  text-decoration: none;
+  color: #0c68ab;
+}
+
+/* color */
+.red {
+  color: red;
+}
+
+/* image */
+img {
+  max-width: 25%;
+  height: auto;
+}
+
+/* validation */
+input, 
+label,
+select,
+textarea {
+    display: block;
+    width: 100%;
+}
+
+@media (min-width: 991px) {
+    .half {
+        float: left;
+        width: 49%;
+    }
+    .half:not(:last-of-type) {
+        margin-right: 1%;
+    }
+}
+
+.btn {
+  width: 50%;
+  padding: 10px;
+  color: #fff;
+  background-color: rgba(12, 104, 171, 0.8);
+  border: none;
+  outline: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: rgba(12, 104, 171, 1);
+}
