@@ -23,7 +23,7 @@ function validation() {
   }
 
   // // validate textarea
-  if (this.tagName.toLowerCase() == "textarea") {
+  if (this.tagName.toLowerCase() == "textarea" && this.hasAttribute("required")) {
     validateTextArea(this);
   }
 
@@ -102,7 +102,7 @@ regForm.addEventListener("submit", function(e) {
     })
 
     // send data to the api
-    fetch("https://stark-template-62549.herokuapp.com/register", {
+    fetch("https://stark-temple-62549.herokuapp.com/register", {
       method: "post",
       headers: {
         Accept: "application/json, text/plain, */*",
@@ -116,7 +116,7 @@ regForm.addEventListener("submit", function(e) {
           "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>";
 
         setTimeout(() => {
-          location.replace('/location.html')
+          location.replace('/register/location.html')
         }, 2500)
       })
       .catch(err => {
@@ -289,8 +289,16 @@ facultySelect.addEventListener("change", function() {
     document.querySelector(".eng-dept").style.display = "none";
   }
 
-  if (this.value == "Engineering" || this.value == "applied arts" || this.value == "pharmacyeuticals") {
+  
+  if (this.value == "pharmacyeuticals") {
     yearCount(5);
+  } else if (this.value == "applied arts" || this.value == "Engineering") {
+    yearCount(4);
+    
+    let option = document.createElement("option");
+    option.innerHTML = "preparatory year";
+    option.value = "preparatory";
+    yearSelect.appendChild(option);
   } else if (this.value == "medicine") {
     yearCount(6);
   } else {
@@ -352,9 +360,23 @@ function showOtherOption(targetSelect) {
   });
 }
 
+let howSelect = document.querySelector("select#how");
+
+howSelect.addEventListener('change', function() {
+  if (this.value == "Social media") {
+    document.querySelector(".social").style.display = "block";
+  } else {
+    document.querySelector(".social").style.display = "none";
+  }
+})
+
 // prevent scrolling on load
 window.addEventListener("load", function() {
-  btnHeader.innerHTML = "Answer the questions";
+  if (location.href.indexOf("ar") > 0) {
+    btnHeader.innerHTML = "أجب عن هذه الأسئله";
+  } else {
+    btnHeader.innerHTML = "Answer the questions";
+  }
 
   btnHeader.disabled = false;
 

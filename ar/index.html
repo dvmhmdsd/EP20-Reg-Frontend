@@ -5,25 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>استمارة تسجيل</title>
-    <link rel="stylesheet" href="/assets/all.min.css" />
-    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" href="../assets/logo.png"/>
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
 
   <body>
     <!-- the header of the app -->
     <header id="main-header" class="reg-header text-center">
       <!-- the logo -->
-      <a href="/" class="logo-link"><img src="assets/logo.png" alt="energia logo"/></a>
+      <a href="/" class="logo-link"><img src="../assets/logo.png" alt="energia logo"/></a>
+      <h2>Energia Powered</h2>
+      
+      <!--heading-->
+      <h1>EP'20 Members Recruitment</h1>
       
       <!-- simple note -->
       <p class="header-caption">
-        هذه الأسئلة لا تحدد قبولك، لذا إن أحببت أن تحلها، تفضل بكل صراحة
+        هذه الأسئلة لا تحدد قبولك، لذا إن أحببت أن تجيب عنها، تفضل بكل صراحة
       </p>
 
 
       <!-- button to scroll down to the form -->
       <button class="btn btn-header" disabled>
-        <img src="assets/loader.gif" alt="loading ..." />
+        <img src="../assets/loader.gif" alt="loading ..." />
       </button>
     </header>
 
@@ -33,16 +37,16 @@
       <header class="reg-header text-center">
         <!-- the instructions -->
         <p class="header-caption">
-          من فضلك املأ كل الفراغات المححدة بعلامة
+          من فضلك املأ كل الفراغات المحددة بعلامة
           <span class="red">* </span>
         </p>
 
         <!-- language link -->
-      <a href="reg.html" class="lang-link">english</a>
+      <a href="/register" class="lang-link">English</a>
       </header>
       <!-- the form section -->
       <div class="container">
-        <section class="form-card">
+        <section class="card">
           <form id="regForm" novalidate>
             <legend class="h1 text-center card-head">استمارة تسجيل</legend>
 
@@ -225,7 +229,7 @@
               <div class="field">
                 <label for="attend"
                   >هل حضرت أي من احداث 
-                  Energia Powered
+                  <span class="bold">Energia Powered</span>
                   من قبل ؟ ان كانت الاجابة نعم، فضلا اذكرها 
                   <span class="red">*</span> </label
                 >
@@ -240,22 +244,22 @@
 
               <div class="field">
                 <label for="committee"
-                >اختر الفريق الذي تود الانضمام اليه - سيكون تفضيلك الأول<span class="red"
+                >اختر اللجنه اللتى تود الانضمام اليها - سيكون تفضيلك الأول<span class="red"
                     >*
                   </span></label
                 >
-                <select id="committee" name="committee" required>
-                  <option value="" disabled selected>اختر فريقًا</option>
-                  <option value="IT">IT</option>
-                  <option value="HR">HR</option>
-                  <option value="DCR">Logistics & DCR</option>
-                  <option value="FR">FR</option>
-                  <option value="PR">PR</option>
-                  <option value="Media">Media</option>
-                  <option value="Design">Design</option>
-                  <option value="Marketing">Marketing</option>
-                  <option value="hybrid-cars-workshop">Hybrid Cars workshop (Participant)</option>
-                  <option value="Robotics-workshop">Robotics workshop (Participant)</option>
+                <select id="committee" name="committee 1" required>
+                  <option value="" disabled selected>اختر لجنه</option>
+                  <option value="IT">IT Member</option>
+                  <option value="HR">Human Resources Member</option>
+                  <option value="DCR">Logistics & DCR Member</option>
+                  <option value="FR">Fund Raising Member</option>
+                  <option value="PR">Public Relations Member</option>
+                  <option value="Media">Media Member</option>
+                  <option value="Design">Design Member</option>
+                  <option value="Marketing">Marketing Member</option>
+                  <option value="hybrid-cars-workshop">Hybrid Cars Moderator Member</option>
+                  <option value="Robotics-workshop">Robotics Moderator Member</option>
                 </select>
               </div>
 
@@ -377,10 +381,10 @@
                   required
                 ></textarea>
               </div>
-
+              
               <div class="field">
                 <label for="join-reason"
-                  >لماذا اخترت هذا الفريق تحديدا ؟<span class="red"
+                  >لماذا اخترت هذه اللجنه تحديدا ؟<span class="red"
                     >*
                   </span></label
                 >
@@ -392,6 +396,27 @@
                   placeholder="مثلا: لأتعلم"
                   required
                 ></textarea>
+              </div>
+              
+              <div class="field">
+                <label for="committee"
+                >اختر اللجنه اللتي تود الانضمام اليها - سيكون تفضيلك الثانى <span class="red"
+                    >*
+                  </span></label
+                >
+                <select id="committee" name="committee 2" required>
+                  <option value="" disabled selected>اختر لجنه</option>
+                  <option value="IT">IT Member</option>
+                  <option value="HR">Human Resources Member</option>
+                  <option value="DCR">Logistics & DCR Member</option>
+                  <option value="FR">Fund Raising Member</option>
+                  <option value="PR">Public Relations Member</option>
+                  <option value="Media">Media Member</option>
+                  <option value="Design">Design Member</option>
+                  <option value="Marketing">Marketing Member</option>
+                  <option value="hybrid-cars-workshop">Hybrid Cars Moderator Member</option>
+                  <option value="Robotics-workshop">Robotics Moderator Member</option>
+                </select>
               </div>
 
               <div class="field">
@@ -406,10 +431,36 @@
                   <option value="website">website</option>
                 </select>
               </div>
+              
+              <div class="field social">
+                <label for="how">أى وسيلة تواصل عرفتنا من خلالها؟ <span class="red">*</span></label>
+
+                <select name="social" id="social" required>
+                  <option value="">Select option</option>
+                  <option value="facebook">Facebook</option>
+                  <option value="Twitter">Twitter</option>
+                  <option value="Instagram">Instagram</option>
+                  <option value="Linkedin">Linkedin</option>
+                  <option value="Youtube">Youtube</option>
+                </select>
+              </div>
+              
+              <div class="field">
+                <label for="time">اى المواعيد انسب لك من أجل المقابله؟ <span class="red">*</span></label>
+
+                <select name="time" id="time" required>
+                  <option value="">Select option</option>
+                  <option value="sat">Saturday</option>
+                  <option value="sun">Sunday</option>
+                  <option value="mon">Monday</option>
+                  <option value="tue">Tuesday</option>
+                  <option value="wed">Wednesday</option>
+                </select>
+              </div>
 
               <div class="field">
-                <label for="comments">اترك تعليقا ^^<span class="red">*</span></label>
-                <textarea name="comments" id="comments" cols="30" rows="10" placeholder="يهمنا رأيك" required></textarea>
+                <label for="comments">اترك تعليقا</label>
+                <textarea name="comments" id="comments" cols="30" rows="10" placeholder="يهمنا رأيك"></textarea>
               </div>
 
               <input type="submit" class="btn" value="تسجيـــــــل" />
@@ -422,12 +473,12 @@
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-body">
-            <img src="/assets/loader.gif" alt="loading ..." />
+            <img src="../assets/loader.gif" alt="loading ..." />
           </div>
         </div>
       </div>
     </main>
 
-    <script src="/js/main.js" defer="defer"></script>
+    <script src="../js/main.js" defer="defer"></script>
   </body>
 </html>

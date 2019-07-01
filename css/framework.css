@@ -1,10 +1,10 @@
-
+@import url('https://fonts.googleapis.com/css?family=Cairo&display=swap');
 /* remove the default style of the layout of elements */
 html {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: monospace;
+  font-family: 'Cairo', sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -17,6 +17,7 @@ html {
 body {
   background: url("../assets/6.png") fixed no-repeat;
   background-size: cover;
+  background-color: rgb(12, 104, 171);
   color: #fff;
   font-size: 15px;
   padding: 20px;
@@ -55,6 +56,10 @@ a {
 /* color */
 .red {
   color: red;
+}
+
+.bold {
+    font-weight: bold;
 }
 
 /* image */
