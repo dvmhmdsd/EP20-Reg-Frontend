@@ -63,10 +63,6 @@ regForm.addEventListener("submit", function(e) {
     if (field.getAttribute("type") !== "submit" && field.offsetParent !== null) {
       // convert the form value from array into object
       sub_form[field.name] = field.value;
-      // reset the form
-      field.value = "";
-      field.classList.remove("valid");
-      field.classList.remove("invalid");
     }
   });
 
@@ -114,10 +110,22 @@ regForm.addEventListener("submit", function(e) {
         // show success message
         modalContent.innerHTML =
           "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>";
-
+              
+        //Redirect to the location-showing page
         setTimeout(() => {
           location.replace('/register/location.html')
-        }, 2500)
+        }, 2500);
+
+        // Reset the form on success
+        formFields.forEach(field => {
+          if (field.getAttribute("type") !== "submit" && field.offsetParent !== null) {
+              field.value = "";
+              field.classList.remove("valid");
+              field.classList.remove("invalid");
+          }
+        });
+        
+
       })
       .catch(err => {
         modalContent.innerHTML = "<p>An error occured, please try again.</p>";

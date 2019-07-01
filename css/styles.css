@@ -13,6 +13,14 @@ header .btn-header {
 /* style the header */
 .header-caption {
   margin-bottom: 40px;
+  font-size: 2em;
+}
+
+.side-caption {
+  margin-bottom: 40px;
+  font-size: 1em;
+  font-weight: bolder;
+  font-style: italic;
 }
 
 header .lang-link {
