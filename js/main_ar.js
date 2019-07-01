@@ -63,10 +63,6 @@ let formFields = document.querySelectorAll(
       if (field.getAttribute("type") !== "submit" && field.offsetParent !== null) {
         // convert the form value from array into object
         sub_form[field.name] = field.value;
-        // reset the form
-        field.value = "";
-        field.classList.remove("valid");
-        field.classList.remove("invalid");
       }
     });
   
@@ -113,11 +109,21 @@ let formFields = document.querySelectorAll(
         .then(res => {
           // show success message
           modalContent.innerHTML =
-            "<p>.شكرا لتسجيلك، سنقوم بالتواصل معك قريبا لتأكيد ميعاد المقابلة </p>";
+            "<p>شكرا لتسجيلك، سنقوم بالتواصل معك قريبا لتأكيد ميعاد المقابلة </p>";
   
           setTimeout(() => {
             location.replace('../ar/location.html')
-          }, 2500)
+          }, 2500);
+
+        // Reset the form on success
+        formFields.forEach(field => {
+            if (field.getAttribute("type") !== "submit" && field.offsetParent !== null) {
+                field.value = "";
+                field.classList.remove("valid");
+                field.classList.remove("invalid");
+            }
+          });
+  
         })
         .catch(err => {
           modalContent.innerHTML = "<p>حدث خطأ ما، حاول مرةأخرى</p>";
@@ -373,7 +379,7 @@ let formFields = document.querySelectorAll(
   // prevent scrolling on load
   window.addEventListener("load", function() {
     if (location.href.indexOf("ar") > 0) {
-      btnHeader.innerHTML = "أجب عن هذه الأسئله";
+      btnHeader.innerHTML = "أجب عن هذه الأسئلة";
     } else {
       btnHeader.innerHTML = "Answer the questions";
     }
