@@ -113,7 +113,7 @@ regForm.addEventListener("submit", function(e) {
               
         //Redirect to the location-showing page
         setTimeout(() => {
-          location.replace('../location.html')
+          location.replace('/register/location.html')
         }, 2500);
 
         // Reset the form on success
