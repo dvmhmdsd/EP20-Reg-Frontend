@@ -116,7 +116,7 @@ regForm.addEventListener("submit", function(e) {
           "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>";
 
         setTimeout(() => {
-          location.replace('/register/location.html')
+          location.replace('../location.html')
         }, 2500)
       })
       .catch(err => {
