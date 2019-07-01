@@ -13,6 +13,8 @@ header .btn-header {
 /* style the header */
 .header-caption {
   margin-bottom: 40px;
+  font-size: 2em;
+  font-weight: bolder;
 }
 
 header .lang-link {
