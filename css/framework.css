@@ -47,10 +47,15 @@ body {
   clear: both;
 }
 
-/* remove the default style of a */
+/* remove the default styles */
 a {
   text-decoration: none;
   color: #0c68ab;
+}
+
+h1 {
+    line-height: 1;
+    margin: 17px;
 }
 
 /* color */
@@ -88,7 +93,6 @@ textarea {
 }
 
 .btn {
-  width: 50%;
   padding: 10px;
   color: #fff;
   background-color: rgba(12, 104, 171, 0.8);
@@ -101,3 +105,5 @@ textarea {
 .btn:hover {
   background-color: rgba(12, 104, 171, 1);
 }
+
+

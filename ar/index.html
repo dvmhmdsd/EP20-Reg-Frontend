@@ -145,7 +145,7 @@
                     <option value="Helwan">جامعة حلوان</option>
                     <option value="Helwan-Matarya">جامعة حلوان - فرع المطرية</option>
                     <option value="Shoubra">جامعة بنها - فرع شبرا</option>
-                    <option value="ECU">الجامعة المصرية الكندية ECU</option>
+                    <option value="ECU">الجامعة المصرية الصينية </option>
                     <option value="October"> جامعة اكتوبر</option>
                     <option value="GUC">الجامعة الألمانية بالقاهرة GUC</option>
                     <option value="AUC">الجامعة الأمريكية بالقاهرة AUC</option>
@@ -231,14 +231,13 @@
                   >هل حضرت أي من احداث 
                   <span class="bold">Energia Powered</span>
                   من قبل ؟ ان كانت الاجابة نعم، فضلا اذكرها 
-                  <span class="red">*</span> </label
+                   </label
                 >
                 <input
                   id="attend"
                   type="text"
                   name="events"
-                  placeholder="e.g: field trip, zayed, ..."
-                  required
+                  placeholder="e.g: field trip, energia gates, ..."
                 />
               </div>
 
@@ -253,13 +252,13 @@
                   <option value="IT">IT Member</option>
                   <option value="HR">Human Resources Member</option>
                   <option value="DCR">Logistics & DCR Member</option>
-                  <option value="FR">Fund Raising Member</option>
+                  <option value="FR">Fundraising Member</option>
                   <option value="PR">Public Relations Member</option>
                   <option value="Media">Media Member</option>
                   <option value="Design">Design Member</option>
                   <option value="Marketing">Marketing Member</option>
-                  <option value="hybrid-cars-workshop">Hybrid Cars Moderator Member</option>
-                  <option value="Robotics-workshop">Robotics Moderator Member</option>
+                  <option value="hybrid-cars-workshop">Hybrid Cars Moderator</option>
+                  <option value="Robotics-workshop">Robotics Moderator</option>
                 </select>
               </div>
 
@@ -404,12 +403,12 @@
                     >*
                   </span></label
                 >
-                <select id="committee" name="committee 2" required>
+                <select id="committee2" name="committee 2" required>
                   <option value="" disabled selected>اختر لجنه</option>
                   <option value="IT">IT Member</option>
                   <option value="HR">Human Resources Member</option>
                   <option value="DCR">Logistics & DCR Member</option>
-                  <option value="FR">Fund Raising Member</option>
+                  <option value="FR">Fundraising Member</option>
                   <option value="PR">Public Relations Member</option>
                   <option value="Media">Media Member</option>
                   <option value="Design">Design Member</option>
@@ -436,7 +435,7 @@
                 <label for="how">أى وسيلة تواصل عرفتنا من خلالها؟ <span class="red">*</span></label>
 
                 <select name="social" id="social" required>
-                  <option value="">اختر ...</option>
+                  <option value="" disabled>اختر ...</option>
                   <option value="facebook">Facebook</option>
                   <option value="Twitter">Twitter</option>
                   <option value="Instagram">Instagram</option>
@@ -449,7 +448,7 @@
                 <label for="time">اى المواعيد انسب لك من أجل المقابله؟ <span class="red">*</span></label>
 
                 <select name="time" id="time" required>
-                  <option value="">اختر ...</option>
+                  <option value="" disabled>اختر ...</option>
                   <option value="sat">السبت</option>
                   <option value="sun">الأحد</option>
                   <option value="mon">الاثنين</option>
@@ -462,6 +461,12 @@
                 <label for="comments">اترك تعليقا</label>
                 <textarea name="comments" id="comments" cols="30" rows="10" placeholder="يهمنا رأيك"></textarea>
               </div>
+              
+              <label for="terms-check">
+                <input type="checkbox" id="terms-check">
+                أوافق على 
+                <a href="#" id="terms-click">شروط الاستخدام</a>
+              </label>
 
               <input type="submit" class="btn" value="تسجيـــــــل" />
             </section>
@@ -478,7 +483,35 @@
         </div>
       </div>
     </main>
+    
+    <!-- terms & conditions-->
+    <div class="modal" id="tAc">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-body" style="text-align: right;">
+          <h1>الشروط و الاحكام</h1>
 
-    <script src="../js/main_ar.js" defer="defer"></script>
+          <p>من فضلك اقرأ هذه الشروط والأحكام جيدا قبل استعمال الخدمات الخاصة بأنيرجيا باورد  صلاحيتك و استخدامك للخدمة مرهون بموافقتك على هذه الشروط. هذه الشروط تطبق على كل الزوار و المستخدمين و كل من يستخدم او يصل لخدمتنا.</p>
+
+          <p>من الممكن ان تحتوي خدمتنا على روابط او خدمات لطرف ثالت ليست مملوكة ولا مدارة بأنيرجيا باورد</p>
+
+          <p>بالوصول الي خدمتنا انت توافق ان تطبق عليك هذه الشروط. ان كنت لا توافق على اي جزء من من الشروط اذن فانت لن تصل الي خدمتنا</p>
+
+
+          <h2>روابط لمواقع أخرى</h2>
+
+          <p>نيرجيا باورد ليس لها سيطرة ولا مسؤولية على المحتوى ولا شروط الخصوصية ولا تصرفات الطرف الثالث ان كاكن موقع او خدمة اخرى. لذا يجب ان توفق على ان انيرجيا باورد ليست مسؤولة بشكل مباشر او غير مباشر عم اي ضرر او فقد حدث او متوقع حدوثه بسبب الاعتماد عليها في خدماتها او محتواها في موقعها</p>
+
+          <p>نحن ننصحك بشدة على قراءة الشروط و الأحكام لأي طرف ثالث تزوره سواء كان خدمة أو موقع.</p>
+
+          <h2>القانون الحاكم</h2>
+
+          <p>تخضع هذه الشروط والأحكام وتكون مضبوطة ومفسرة وفقا للقوانين جمهورية مصر العربية ، وأي تحاكم يجب أن يكون للمحاكم الواقعة في جمهورية مصر العربية.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/main.js" defer="defer"></script>
   </body>
 </html>

@@ -27,11 +27,6 @@ function validation() {
     validateTextArea(this);
   }
 
-  if (error > 0) {
-    document.querySelector("#regForm input[type='submit']").disabled = true;
-  } else {
-    document.querySelector("#regForm input[type='submit']").disabled = false;
-  }
 }
 
 // validateEmpty the fields on blur
@@ -41,6 +36,26 @@ formFields.forEach(field => {
 
   // validate on typing
   field.addEventListener("keydown", validation);
+  
+  // validate on change
+  field.addEventListener("change", validation);
+  
+  //   save data on reload
+  window.addEventListener('beforeunload', function() {
+    localStorage.setItem(field.name, field.value);
+  })
+
+  window.addEventListener('load', function() {
+    // get the value from local storage
+    let val = localStorage.getItem(field.name)
+    if (val !== null) field.value = val;
+  })
+  
+  if (field.getAttribute("type") == "submit") {
+    field.addEventListener("focus", function() {
+      validateEmpty(this)
+    });  
+  }
 
   // scroll to show the input on focus in mobile
   if (window.innerWidth == 768) {
@@ -68,7 +83,7 @@ regForm.addEventListener("submit", function(e) {
 
   if (error > 0) {
     // disable the submit button
-    document.querySelector("#regForm input[type='submit']").disabled = true;
+    // document.querySelector("#regForm input[type='submit']").disabled = true;
 
     // prevent the submition if there's errors
     e.preventDefault();
@@ -96,6 +111,11 @@ regForm.addEventListener("submit", function(e) {
     document.querySelectorAll('.question').forEach(question => {
       question.style.display = 'none';
     })
+  // show the loading before every request
+    if (modalContent.querySelector('p')) {
+        modalContent.querySelector('p').style.display = 'none';
+    }
+    modalContent.querySelector('img').style.display = 'block';
 
     // send data to the api
     fetch("https://stark-temple-62549.herokuapp.com/register", {
@@ -108,12 +128,28 @@ regForm.addEventListener("submit", function(e) {
     })
       .then(res => {
         // show success message
-        modalContent.innerHTML =
-          "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>";
+        if (location.href.indexOf("ar") > 0) {
+            modalContent.querySelector('img').style.display = 'none';
+            modalContent.querySelectorAll('p').forEach(p => {
+                p.style.display = 'none';
+            })
+            modalContent.insertAdjacentHTML("beforeend", "<p>شكرا لتسجيلك، سيتم التواصل معك قريبا</p>")
+              
+        } else {
+            modalContent.querySelector('img').style.display = 'none';
+            modalContent.querySelectorAll('p').forEach(p => {
+                p.style.display = 'none';
+            })
+            modalContent.insertAdjacentHTML("beforeend", "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>")
+        }
               
         //Redirect to the location-showing page
         setTimeout(() => {
-          location.replace('/register/location.html')
+            if (location.href.indexOf("ar") > 0) {
+                location.replace('/register/ar/location.html')
+            } else {
+                location.replace('/register/location.html')
+            }
         }, 2500);
 
         // Reset the form on success
@@ -128,8 +164,20 @@ regForm.addEventListener("submit", function(e) {
 
       })
       .catch(err => {
-        modalContent.innerHTML = "<p>An error occured, please try again.</p>";
-      });
+          if (location.href.indexOf("ar") > 0) {
+            modalContent.querySelector('img').style.display = 'none';
+            modalContent.querySelectorAll('p').forEach(p => {
+                p.style.display = 'none';
+            })
+            modalContent.insertAdjacentHTML("beforeend", "<p>حدث خطأ ما، من فضلك أعد المحاولة</p>")
+          } else {
+            modalContent.querySelector('img').style.display = 'none';
+            modalContent.querySelectorAll('p').forEach(p => {
+                p.style.display = 'none';
+            })
+            modalContent.insertAdjacentHTML("beforeend", "<p>An error occured, please try again.</p>")
+          }
+      })
   }
 });
 
@@ -258,6 +306,7 @@ function message(el, msg) {
 
 // show the corresponding question appear on selecting the option
 let committeeSelect = document.querySelector("select#committee");
+let committeeSelect2 = document.querySelector("select#committee2");
 
 // handle the change event in the select box
 committeeSelect.addEventListener("change", function() {
@@ -269,6 +318,15 @@ committeeSelect.addEventListener("change", function() {
   if (document.querySelector(`#${this.value}`)) {
     document.querySelector(`#${this.value}`).style.display = "block";
   }
+  
+//   remove the chosen option from 2nd preference
+    for (let i = 0; i < committeeSelect2.children.length; i++) {
+        if (committeeSelect2.children[i].value == this.value) {
+          committeeSelect2.children[i].style.display = 'none'
+        } else {
+          committeeSelect2.children[i].style.display = 'block'
+        }
+    }
 });
 
 // show the input for 'other' choice appear on selecting the option
@@ -278,6 +336,8 @@ let universitySelect = document.querySelector("select#university");
 universitySelect.addEventListener("change", function() {
   if (this.value == "other") {
     showOtherOption(this);
+  } else {
+      this.parentElement.nextElementSibling.style.display = 'none'
   }
 });
 
@@ -288,6 +348,8 @@ let facultySelect = document.querySelector("select#faculty");
 facultySelect.addEventListener("change", function() {
   if (this.value == "other") {
     showOtherOption(this);
+  } else {
+      this.parentElement.nextElementSibling.style.display = 'none'
   }
   // show the "year selectbox"
   document.querySelector(".year").style.display = "block";
@@ -381,9 +443,9 @@ howSelect.addEventListener('change', function() {
 // prevent scrolling on load
 window.addEventListener("load", function() {
   if (location.href.indexOf("ar") > 0) {
-    btnHeader.innerHTML = "أجب عن هذه الأسئله";
+    btnHeader.innerHTML = "إضغط هنا للتسجيل";
   } else {
-    btnHeader.innerHTML = "Answer the questions";
+    btnHeader.innerHTML = "Click here to apply";
   }
 
   btnHeader.disabled = false;
@@ -418,3 +480,36 @@ btnHeader.addEventListener("click", function() {
   document.querySelector('main .container').classList.remove('contain')
 });
 
+
+// show the terms and conditions modal
+termsBtn = document.querySelector('#terms-click');
+termsModal = document.querySelector('#tAc');
+
+termsBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  termsModal.style.display = 'block'
+})
+// hide when clicking any where except the modal
+window.onclick = function(e) {
+  if (e.target == termsModal) {
+    termsModal.style.display = "none";
+  }
+};
+
+// check if the terms is checked
+let termsCheck = document.querySelector('#terms-check');
+
+let submitBtn = document.querySelector("#regForm input[type='submit']");
+submitBtn.disabled = true;
+
+termsCheck.addEventListener('change', function() {
+  if (this.checked) {
+    formFields.forEach(field => {
+        validateEmpty(field);
+    });
+    
+    submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
+  }
+})

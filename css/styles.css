@@ -10,6 +10,12 @@ header .btn-header {
   font-size: 3vw;
 }
 
+@media (max-width: 600px) {
+    header .btn-header {
+        font-size: 5.5vw;
+    }
+}
+
 /* style the header */
 .header-caption {
   margin-bottom: 40px;
@@ -19,8 +25,7 @@ header .btn-header {
 .side-caption {
   margin-bottom: 40px;
   font-size: 1em;
-  font-weight: bolder;
-  font-style: italic;
+  line-height: 1.4;
 }
 
 header .lang-link {
@@ -116,6 +121,11 @@ header .lang-link {
   margin-bottom: 10px;
 }
 
+#terms-check {
+  display: inline-block;
+  width: 10%;
+}
+
 /* style the inputs */
 .card input,
 .card select,
@@ -124,6 +134,10 @@ header .lang-link {
   border-radius: 7px;
   border: 1px solid #454c5e;
   outline: 0;
+}
+
+.card input[type="submit"] {
+    width: 50%;
 }
 
 /* validation */
@@ -205,6 +219,18 @@ textarea.invalid {
 .modal-body img {
   max-width: 32%;
   height: auto;
+}
+
+#tAc .modal-content {
+  height: 70%;
+  overflow: auto;
+  display: block;
+}
+
+#tAc .modal-content .modal-body {
+  display: block;
+  text-align: left;
+  padding-top: 50px;
 }
 
 /* Add Animation */
