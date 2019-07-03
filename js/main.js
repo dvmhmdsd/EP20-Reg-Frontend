@@ -1,4 +1,26 @@
-// show the loading before of the page before
+//Language specific things
+const ar = {
+  thanks      : "<p>شكرا لتسجيلك، سنقوم بالتواصل معك قريبا لتأكيد ميعاد المقابلة </p>",
+  error       : "<p>حدث خطأ ما، حاول مرةأخرى</p>",
+  fill        : "فضلا املأ هذا الفراغ",
+  validEmail  : "أدخل بريد الكتروني صحيح",
+  validPhone  : "أدخل رقم موبايل صحيح",
+  fill2       : "هذا الفراغ لا بد أن يملأ بما لا يقل عن كلمتين",
+  answer      : "أجب عن هذه الأسئلة",
+  location    : '../ar/location.html'
+};
+
+const en = {
+  thanks      : "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>",
+  error       : "<p>An error occured, please try again.</p>",
+  fill        : "Please fill in this field",
+  validEmail  : "Please enter a valid email",
+  validPhone  : "Enter a valid phone number",
+  fill2       : "This field must be at least 2 words",
+  answer      : "Answer the questions",
+  location    : '../location.html'
+}
+
 
 // validateEmpty the form
 // get the form inputs
@@ -108,13 +130,23 @@ regForm.addEventListener("submit", function(e) {
     })
       .then(res => {
         // show success message
-        modalContent.innerHTML =
-          "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>";
-              
-        //Redirect to the location-showing page
-        setTimeout(() => {
-          location.replace('/register/location.html')
-        }, 2500);
+        if (location.href.indexOf("ar") > 0) {
+          //Arabic Response
+          modalContent.innerHTML = ar.thanks;
+          
+          //Redirect to the location-showing page
+          setTimeout(() => {
+            location.replace(ar.location)
+          }, 2500);
+        } else {
+          //English Response
+          modalContent.innerHTML =  en.thanks;
+
+          //Redirect to the location-showing page
+          setTimeout(() => {
+            location.replace(en.location)
+          }, 2500);
+        }
 
         // Reset the form on success
         formFields.forEach(field => {
@@ -124,11 +156,9 @@ regForm.addEventListener("submit", function(e) {
               field.classList.remove("invalid");
           }
         });
-        
-
       })
       .catch(err => {
-        modalContent.innerHTML = "<p>An error occured, please try again.</p>";
+        modalContent.innerHTML = (location.href.indexOf("ar") > 0 ) ? ar.error : en.error;
       });
   }
 });
@@ -156,7 +186,7 @@ function validateEmpty(field) {
 
         error += 1;
         // insert error message after the empty field
-        message(field, "Please fill this field");
+        message(field, (location.href.indexOf("ar") > 0 ) ? ar.fill : en.fill);
       }
     }
   }
@@ -173,7 +203,7 @@ function validateEmail(field) {
 
       error += 1;
 
-      message(field, "Add a valid email");
+      message(field, (location.href.indexOf("ar") > 0 ) ? ar.validEmail : en.validEmail);
     }
   } else {
     field.classList.add("valid");
@@ -203,7 +233,7 @@ function validatePhone(field) {
 
       error += 1;
 
-      message(field, "Enter a valid phone number");
+      message(field, (location.href.indexOf("ar") > 0 ) ? ar.validPhone : en.validPhone);
     }
   } else {
     field.classList.add("valid");
@@ -232,7 +262,7 @@ function validateTextArea(field) {
 
       error += 1;
 
-      message(field, "This field must be at least 2 words");
+      message(field, (location.href.indexOf("ar") > 0 ) ? ar.fill2 : en.fill2);
     }
   } else {
     field.classList.add("valid");
@@ -380,12 +410,7 @@ howSelect.addEventListener('change', function() {
 
 // prevent scrolling on load
 window.addEventListener("load", function() {
-  if (location.href.indexOf("ar") > 0) {
-    btnHeader.innerHTML = "أجب عن هذه الأسئله";
-  } else {
-    btnHeader.innerHTML = "Answer the questions";
-  }
-
+  btnHeader.innerHTML = (location.href.indexOf("ar") > 0) ? ar.answer : en.answer;
   btnHeader.disabled = false;
 
   // scroll to top on load
@@ -417,4 +442,3 @@ btnHeader.addEventListener("click", function() {
   document.querySelector('.card').classList.add('anime-form');
   document.querySelector('main .container').classList.remove('contain')
 });
-
