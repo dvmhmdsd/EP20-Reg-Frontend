@@ -1,4 +1,26 @@
-// show the loading before of the page before
+//Language specific things
+const ar = {
+  thanks      : "<p>شكرا لتسجيلك، سنقوم بالتواصل معك قريبا لتأكيد ميعاد المقابلة </p>",
+  error       : "<p>حدث خطأ ما، حاول مرةأخرى</p>",
+  fill        : "فضلا املأ هذا الفراغ",
+  validEmail  : "أدخل بريد الكتروني صحيح",
+  validPhone  : "أدخل رقم موبايل صحيح",
+  fill2       : "هذا الفراغ لا بد أن يملأ بما لا يقل عن كلمتين",
+  answer      : "أجب عن هذه الأسئلة",
+  location    : '../ar/location.html'
+};
+
+const en = {
+  thanks      : "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>",
+  error       : "<p>An error occured, please try again.</p>",
+  fill        : "Please fill in this field",
+  validEmail  : "Please enter a valid email",
+  validPhone  : "Enter a valid phone number",
+  fill2       : "This field must be at least 2 words",
+  answer      : "Answer the questions",
+  location    : '../location.html'
+}
+
 
 // validateEmpty the form
 // get the form inputs
@@ -133,24 +155,30 @@ regForm.addEventListener("submit", function(e) {
             modalContent.querySelectorAll('p').forEach(p => {
                 p.style.display = 'none';
             })
-            modalContent.insertAdjacentHTML("beforeend", "<p>شكرا لتسجيلك، سيتم التواصل معك قريبا</p>")
+            modalContent.insertAdjacentHTML("beforeend", `<p>${ar.thanks}</p>`)
               
         } else {
             modalContent.querySelector('img').style.display = 'none';
             modalContent.querySelectorAll('p').forEach(p => {
                 p.style.display = 'none';
             })
-            modalContent.insertAdjacentHTML("beforeend", "<p>Thank you for your registration, We will call you soon to confirm your appointment.</p>")
+            modalContent.insertAdjacentHTML("beforeend", `<p>${en.thanks}</p>`)
         }
               
         //Redirect to the location-showing page
         setTimeout(() => {
             if (location.href.indexOf("ar") > 0) {
-                location.replace('/register/ar/location.html')
+                location.replace(ar.location)
             } else {
-                location.replace('/register/location.html')
+                location.replace(en.location)
             }
         }, 2500);
+              
+        //Redirect to the location-showing page
+        setTimeout(() => {
+          location.replace('/register/location.html')
+        }, 2500);
+
 
         // Reset the form on success
         formFields.forEach(field => {
@@ -160,8 +188,6 @@ regForm.addEventListener("submit", function(e) {
               field.classList.remove("invalid");
           }
         });
-        
-
       })
       .catch(err => {
           if (location.href.indexOf("ar") > 0) {
@@ -169,13 +195,13 @@ regForm.addEventListener("submit", function(e) {
             modalContent.querySelectorAll('p').forEach(p => {
                 p.style.display = 'none';
             })
-            modalContent.insertAdjacentHTML("beforeend", "<p>حدث خطأ ما، من فضلك أعد المحاولة</p>")
+            modalContent.insertAdjacentHTML("beforeend", `<p>${ar.error}</p>`)
           } else {
             modalContent.querySelector('img').style.display = 'none';
             modalContent.querySelectorAll('p').forEach(p => {
                 p.style.display = 'none';
             })
-            modalContent.insertAdjacentHTML("beforeend", "<p>An error occured, please try again.</p>")
+            modalContent.insertAdjacentHTML("beforeend", `<p>${en.error}</p>`)
           }
       })
   }
@@ -204,7 +230,7 @@ function validateEmpty(field) {
 
         error += 1;
         // insert error message after the empty field
-        message(field, "Please fill this field");
+        message(field, (location.href.indexOf("ar") > 0 ) ? ar.fill : en.fill);
       }
     }
   }
@@ -221,7 +247,7 @@ function validateEmail(field) {
 
       error += 1;
 
-      message(field, "Add a valid email");
+      message(field, (location.href.indexOf("ar") > 0 ) ? ar.validEmail : en.validEmail);
     }
   } else {
     field.classList.add("valid");
@@ -251,7 +277,7 @@ function validatePhone(field) {
 
       error += 1;
 
-      message(field, "Enter a valid phone number");
+      message(field, (location.href.indexOf("ar") > 0 ) ? ar.validPhone : en.validPhone);
     }
   } else {
     field.classList.add("valid");
@@ -280,7 +306,7 @@ function validateTextArea(field) {
 
       error += 1;
 
-      message(field, "This field must be at least 2 words");
+      message(field, (location.href.indexOf("ar") > 0 ) ? ar.fill2 : en.fill2);
     }
   } else {
     field.classList.add("valid");
@@ -442,10 +468,11 @@ howSelect.addEventListener('change', function() {
 
 // prevent scrolling on load
 window.addEventListener("load", function() {
+<<<<<<< HEAD
   if (location.href.indexOf("ar") > 0) {
-    btnHeader.innerHTML = "إضغط هنا للتسجيل";
+    btnHeader.innerHTML = ar.answer;
   } else {
-    btnHeader.innerHTML = "Click here to apply";
+    btnHeader.innerHTML = en.answer;
   }
 
   btnHeader.disabled = false;
@@ -478,6 +505,7 @@ btnHeader.addEventListener("click", function() {
   // animate the form
   document.querySelector('.card').classList.add('anime-form');
   document.querySelector('main .container').classList.remove('contain')
+<<<<<<< HEAD
 });
 
 
