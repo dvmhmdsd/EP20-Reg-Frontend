@@ -40,8 +40,6 @@
           Please fill in some information and make sure to fill all fields with
           <span class="red">* </span>sign.
         </p>
-        <!-- language link -->
-      <a href="./ar" class="lang-link">عربى</a>
       </header>
       <!-- the form section -->
       <div class="container contain">
@@ -50,9 +48,8 @@
             <legend class="h1 text-center card-head">Registeration Form</legend>
 
             <section class="form-fields">
-              <!-- TODO: add the haif class if the form become long -->
               <div class="field half">
-                <label for="name">Full Name <span class="red"> * </span></label
+                <label for="name">Your Full Name <span class="red"> * </span></label
                 ><input
                   id="name"
                   type="text"
@@ -92,39 +89,26 @@
                   />
                 </div>
 
-                <!-- address -->
-                <div class="field half">
-                  <label for="address"
-                    >Your Address<span class="red"> * </span></label
-                  >
-                  <input
-                    id="address"
-                    type="text"
-                    name="address"
-                    placeholder="e.g: street x / line y"
-                    required
-                  />
-                </div>
-                <div class="clearfix"></div>
-
-              <!-- facebook link -->
-              <div class="field">
+                
+                <!-- facebook link -->
+              <div class="field half">
                 <label for="facebook"
                   >Your Facebook account URL<span class="red"> * </span></label
-                >
+                  >
                 <input
-                  id="facebook"
+                id="facebook"
                   type="url"
                   name="facebook"
                   placeholder="e.g: https://m.facebook.com/it.member4"
                   required
                 />
               </div>
-
+              
+              <div class="clearfix"></div>
 
               <!-- hobbies -->
               <div class="field">
-                  <label for="hobbies">Your Hobbies</label>
+                  <label for="hobbies">What's Your Hobbies</label>
                   <input
                     id="hobbies"
                     type="text"
@@ -168,9 +152,9 @@
               </div>
 
               <div class="field">
-                <label for="faculty">Faculty<span class="red"> * </span></label>
+                <label for="faculty">College<span class="red"> * </span></label>
                 <select name="faculty" id="faculty" required>
-                    <option value="" disabled selected>Select your faculty</option>
+                    <option value="" disabled selected>Select your college</option>
                     <option value="Engineering">Engineering</option>
                     <option value="law">Law</option>
                     <option value="medicine">Medicine</option>
@@ -259,122 +243,6 @@
                 </select>
               </div>
 
-              <!-- questions fields -->
-              <div class="field question" id="IT">
-                <label for="question">What web technologies do you know?<span class="red"> * </span></label>
-                <textarea
-                  id="question"
-                  name="question 1"
-                  cols="30"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-
-              <div class="field question" id="DCR">
-                <label for="question">Have you ever made any decorations for something or handmade things?<span class="red"> * </span></label>
-
-                <div class="radio-block">
-                  <input type="radio" name="question 1" value="no" id="dc" required>
-                  <label for="dc">Yes</label>
-                </div>
-
-                <div class="radio-block">
-                  <input type="radio" name="question 1" id="dc1" value="yes">
-                  <label for="dc1">No</label>
-                </div>
-              </div>
-
-              <div class="field question" id="PR">
-                <label for="question">Do you know how to use Microsoft Word?<span class="red"> * </span></label>
-                <div class="radio-block">
-                  <input type="radio" name="question 1" id="pr" value="no" required>
-                  <label for="pr">Yes</label>
-                </div>
-                <div class="radio-block">
-                  <input type="radio" id="pr1" name="question 1" value="yes">
-                  <label for="pr1">No</label>
-                </div>
-
-                <label for="question">Have you ever sent an email to a specific person?<span class="red"> * </span></label>
-                <div class="radio-block">
-                  <input type="radio" name="question 2" id="mail" value="no" required>
-                  <label for="mail">Yes</label>
-                </div>
-                <div class="radio-block">
-                  <input type="radio" id="mail1" name="question 2" value="yes">
-                  <label for="mail1">No</label>
-                </div>
-              </div>
-
-              <div class="field question" id="hybrid-cars-workshop">
-                <p>Please before your interview, prepare a presentation about the four strokes of the gasoline car engine for about 10 minutes.</p>
-              </div>
-
-              <div class="field question" id="Robotics-workshop">
-                <label for="exp">Do you have any experience in robotics? if yes, please mention them<span class="red"> *</span> </label>
-                <input
-                  id="exp"
-                  type="text"
-                  name="question 1"
-                  placeholder="e.g: field trip, zayed, ..."
-                />  
-
-                <label for="robotics">Do You know any programming languages? if yes, please mention them<span class="red"> *</span> </label>
-                <input
-                  id="robotics"
-                  type="text"
-                  name="question 2"
-                  placeholder="e.g: python, ..."
-                />
-
-                <p>Please before your interview, prepare a presentation about any topic you like for about 10 minutes.</p>
-              </div>
-
-              <div class="field question" id="Design">
-                <label for="question">Do you have any experience with any design tool (Photoshop,..etc)? if yes, please mention them.<span class="red">* </span></label>
-                <textarea
-                id="question"
-                name="question 1"
-                cols="30"
-                rows="5"
-                placeholder="e.g: Photoshop, ..."
-                required
-                ></textarea>
-              </div>
-
-              <div class="field question" id="Media">
-                <label>Do you have a camera?<span class="red"> * </span></label>
-                <div class="radio-block">
-                  <input type="radio" name="question 1" id="camera" value="no" required>
-                  <label for="camera">Yes</label>
-                </div>
-                <div class="radio-block">
-                  <input type="radio" name="question 1" id="camera1" value="yes">
-                  <label for="camera1">No</label>
-                </div>
-
-                <label>Do you have any experiences in photography and video editing? if yes , please mention them<span class="red"> * </span></label>
-                <textarea
-                  id="question"
-                  name="question 2"
-                  cols="30"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-
-              <div class="field question" id="Marketing">
-                <label for="question">Do you have any experiences in Marketing? if yes, please mention them.<span class="red"> * </span></label>
-                <textarea
-                  id="question"
-                  name="question 1"
-                  cols="30"
-                  rows="5"
-                  required
-                ></textarea>
-              </div>
-              
               <div class="field">
                 <label for="join-reason"
                   >Why did you choose this committee?<span class="red"
@@ -406,48 +274,6 @@
                   <option value="PR">Public Relations Member</option>
                   <option value="Media">Media Member</option>
                   <option value="Design">Design Member</option>
-                  <option value="Marketing">Marketing Member</option>
-                  <option value="hybrid-cars-workshop">Hybrid Cars Moderator</option>
-                  <option value="Robotics-workshop">Robotics Moderator</option>
-                </select>
-              </div>
-
-              <div class="field">
-                <label for="how">How did you know us? <span class="red"> *</span></label>
-
-                <select name="How Know" id="how" required>
-                  <option value="" disabled selected>Select option</option>
-                  <option value="" disabled>Select option</option>
-                  <option value="Social media">Social media</option>
-                  <option value="our booth">Our booth</option>
-                  <option value="friend">Friend</option>
-                  <option value="university">University</option>
-                  <option value="website">Website</option>
-                </select>
-              </div>
-              
-              <div class="field social">
-                <label for="social">Which social media did you find us in? <span class="red">*</span></label>
-
-                <select name="social" id="social" required>
-                  <option value="facebook">Facebook</option>
-                  <option value="Twitter">Twitter</option>
-                  <option value="Instagram">Instagram</option>
-                  <option value="Linkedin">Linkedin</option>
-                  <option value="Youtube">Youtube</option>
-                </select>
-              </div>
-              
-              <div class="field">
-                <label for="time">Which time is compatible with you for the interview? <span class="red">*</span></label>
-
-                <select name="time" id="time" required>
-                  <option value="" disabled selected>Select option</option>
-                  <option value="sat">Saturday</option>
-                  <option value="sun">Sunday</option>
-                  <option value="mon">Monday</option>
-                  <option value="tue">Tuesday</option>
-                  <option value="wed">Wednesday</option>
                 </select>
               </div>
 
